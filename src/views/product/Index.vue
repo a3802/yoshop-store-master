@@ -40,13 +40,6 @@
     </div>
     <s-table ref="table" rowKey="product_id" :loading="isLoading" :columns="columns" :data="loadData"
       :rowSelection="rowSelection" :pageSize="15" :scroll="{ x: 1450 }">
-      <!-- 商品图片 -->
-      <span slot="product_image" slot-scope="text">
-        <a title="点击查看原图" :href="text" target="_blank">
-          <img width="50" height="50" :src="text" alt="商品图片" />
-        </a>
-      </span>
-      <!-- 商品名称 -->
       <span slot="product_name" slot-scope="text">
         <p class="twoline-hide" style="width: 270px;">{{ text }}</p>
       </span>
@@ -57,8 +50,7 @@
       </span>
       <!-- 操作项 -->
       <div class="actions" slot="action" slot-scope="text, item">
-        <router-link :to="{ path: '/goods/update', query: { product_id: item.product_id } }">编辑</router-link>
-        <a v-action:delete @click="handleDelete([item.goods_id])">删除</a>
+        <router-link :to="{ path: '/product/update', query: { product_id: item.product_id } }">编辑</router-link>
       </div>
     </s-table>
   </a-card>
@@ -74,11 +66,6 @@ const columns = [
   {
     title: '商品ID',
     dataIndex: 'product_id'
-  },
-  {
-    title: '商品图片',
-    dataIndex: 'product_image',
-    scopedSlots: { customRender: 'product_image' }
   },
   {
     title: '商品名称',
@@ -210,12 +197,12 @@ export default {
     },
 
     // 修改商品状态(上下架)
-    handleUpdateStatus(goodsIds, state = true) {
-      if (!this.$auth('/goods/index.status')) {
+    handleUpdateStatus(productIds, state = true) {
+      if (!this.$auth('/product/index.status')) {
         return false
       }
       this.isLoading = true
-      ProductApi.state({ goodsIds, state })
+      ProductApi.state({ productIds, state })
         .then(result => {
           // 显示成功
           this.$message.success(result.message, 1.5)

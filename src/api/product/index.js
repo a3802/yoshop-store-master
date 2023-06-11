@@ -12,7 +12,7 @@ const api = {
     add: '/product/add',
     // edit: '/goods/edit',
     // delete: '/goods/delete',
-    // state: '/goods/state'
+    state: '/product/state'
 }
 
 /**
