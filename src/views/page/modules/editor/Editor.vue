@@ -47,10 +47,8 @@
             <div class="block-item">
               <span class="label">标题栏背景</span>
               <div class="item-colorPicker">
-                <span
-                  class="rest-color"
-                  @click="onEditorResetColor(data.page.style, 'titleBackgroundColor', '#fff')"
-                >重置</span>
+                <span class="rest-color"
+                  @click="onEditorResetColor(data.page.style, 'titleBackgroundColor', '#fff')">重置</span>
                 <colorPicker v-model="data.page.style.titleBackgroundColor" defaultColor="#fff" />
               </div>
             </div>
@@ -113,10 +111,7 @@
           <div class="block-item">
             <span class="label">背景颜色</span>
             <div class="item-colorPicker">
-              <span
-                class="rest-color"
-                @click="onEditorResetColor(curItem.style, 'background', '#fff')"
-              >重置</span>
+              <span class="rest-color" @click="onEditorResetColor(curItem.style, 'background', '#fff')">重置</span>
               <colorPicker v-model="curItem.style.background" defaultColor="#fff" />
             </div>
           </div>
@@ -138,10 +133,7 @@
           <div class="block-item">
             <span class="label">线条颜色</span>
             <div class="item-colorPicker">
-              <span
-                class="rest-color"
-                @click="onEditorResetColor(curItem.style, 'lineColor', '#000')"
-              >重置</span>
+              <span class="rest-color" @click="onEditorResetColor(curItem.style, 'lineColor', '#000')">重置</span>
               <colorPicker v-model="curItem.style.lineColor" defaultColor="#000" />
             </div>
           </div>
@@ -168,10 +160,7 @@
           <div class="block-item">
             <span class="label">背景颜色</span>
             <div class="item-colorPicker">
-              <span
-                class="rest-color"
-                @click="onEditorResetColor(curItem.style, 'background', '#fff')"
-              >重置</span>
+              <span class="rest-color" @click="onEditorResetColor(curItem.style, 'background', '#fff')">重置</span>
               <colorPicker v-model="curItem.style.background" defaultColor="#fff" />
             </div>
           </div>
@@ -185,7 +174,7 @@
             <div class="block-box">
               <div class="block-title">文本内容</div>
               <div class="ueditor">
-                <Ueditor v-model="curItem.params.content" :config="{ initialFrameWidth: 375  }" />
+                <Ueditor v-model="curItem.params.content" :config="{ initialFrameWidth: 375 }" />
               </div>
             </div>
           </a-tab-pane>
@@ -215,10 +204,7 @@
               <div class="block-item">
                 <span class="label">背景颜色</span>
                 <div class="item-colorPicker">
-                  <span
-                    class="rest-color"
-                    @click="onEditorResetColor(curItem.style, 'background', '#fff')"
-                  >重置</span>
+                  <span class="rest-color" @click="onEditorResetColor(curItem.style, 'background', '#fff')">重置</span>
                   <colorPicker v-model="curItem.style.background" defaultColor="#fff" />
                 </div>
               </div>
@@ -251,20 +237,14 @@
               <div class="block-item">
                 <span class="label">文字颜色</span>
                 <div class="item-colorPicker">
-                  <span
-                    class="rest-color"
-                    @click="onEditorResetColor(curItem.style, 'textColor', '#000')"
-                  >重置</span>
+                  <span class="rest-color" @click="onEditorResetColor(curItem.style, 'textColor', '#000')">重置</span>
                   <colorPicker v-model="curItem.style.textColor" defaultColor="#000" />
                 </div>
               </div>
               <div class="block-item">
                 <span class="label">背景颜色</span>
                 <div class="item-colorPicker">
-                  <span
-                    class="rest-color"
-                    @click="onEditorResetColor(curItem.style, 'background', '#fff')"
-                  >重置</span>
+                  <span class="rest-color" @click="onEditorResetColor(curItem.style, 'background', '#fff')">重置</span>
                   <colorPicker v-model="curItem.style.background" defaultColor="#fff" />
                 </div>
               </div>
@@ -440,10 +420,7 @@
         <a-tabs>
           <a-tab-pane key="1" tab="内容设置">
             <div class="sub-title">添加图片 (最多10张，可拖动排序）</div>
-            <draggable
-              :list="curItem.data"
-              v-bind="{ animation: 120, filter: 'input', preventOnFilter: false }"
-            >
+            <draggable :list="curItem.data" v-bind="{ animation: 120, filter: 'input', preventOnFilter: false }">
               <div v-for="(item, index) in curItem.data" :key="index" class="block-box drag">
                 <div class="block-title">
                   <span class="left">图片 {{ index + 1 }}</span>
@@ -461,11 +438,7 @@
                     </div>
                   </div>
                   <div class="block-item-custom">
-                    <SImage
-                      v-model="item.imgUrl"
-                      tips="建议尺寸：宽750"
-                      @update="item.imgName = $event.file_name"
-                    />
+                    <SImage v-model="item.imgUrl" tips="建议尺寸：宽750" @update="item.imgName = $event.file_name" />
                   </div>
                 </div>
               </div>
@@ -500,10 +473,7 @@
               <div class="block-item">
                 <span class="label">背景颜色</span>
                 <div class="item-colorPicker">
-                  <span
-                    class="rest-color"
-                    @click="onEditorResetColor(curItem.style, 'background', '#fff')"
-                  >重置</span>
+                  <span class="rest-color" @click="onEditorResetColor(curItem.style, 'background', '#fff')">重置</span>
                   <colorPicker v-model="curItem.style.background" defaultColor="#fff" />
                 </div>
               </div>
@@ -517,10 +487,7 @@
         <a-tabs>
           <a-tab-pane key="1" tab="内容设置">
             <div class="sub-title">添加图片 (最多10张，可拖动排序）</div>
-            <draggable
-              :list="curItem.data"
-              v-bind="{ animation: 120, filter: 'input', preventOnFilter: false }"
-            >
+            <draggable :list="curItem.data" v-bind="{ animation: 120, filter: 'input', preventOnFilter: false }">
               <div v-for="(item, index) in curItem.data" :key="index" class="block-box drag">
                 <div class="block-title">
                   <span class="left">图片 {{ index + 1 }}</span>
@@ -538,11 +505,7 @@
                     </div>
                   </div>
                   <div class="block-item-custom">
-                    <SImage
-                      v-model="item.imgUrl"
-                      tips="建议尺寸：750×400"
-                      @update="item.imgName = $event.file_name"
-                    />
+                    <SImage v-model="item.imgUrl" tips="建议尺寸：750×400" @update="item.imgName = $event.file_name" />
                   </div>
                 </div>
               </div>
@@ -565,10 +528,7 @@
               <div class="block-item">
                 <span class="label">指示点颜色</span>
                 <div class="item-colorPicker">
-                  <span
-                    class="rest-color"
-                    @click="onEditorResetColor(curItem.style, 'btnColor', '#fff')"
-                  >重置</span>
+                  <span class="rest-color" @click="onEditorResetColor(curItem.style, 'btnColor', '#fff')">重置</span>
                   <colorPicker v-model="curItem.style.btnColor" defaultColor="#fff" />
                 </div>
               </div>
@@ -667,10 +627,7 @@
               <div class="block-item">
                 <span class="label">背景颜色</span>
                 <div class="item-colorPicker">
-                  <span
-                    class="rest-color"
-                    @click="onEditorResetColor(curItem.style, 'background', '#fff')"
-                  >重置</span>
+                  <span class="rest-color" @click="onEditorResetColor(curItem.style, 'background', '#fff')">重置</span>
                   <colorPicker v-model="curItem.style.background" defaultColor="#fff" />
                 </div>
               </div>
@@ -684,10 +641,7 @@
         <a-tabs>
           <a-tab-pane key="1" tab="内容设置">
             <div class="sub-title">添加导航 (最少4个，最多10个，可拖动排序)</div>
-            <draggable
-              :list="curItem.data"
-              v-bind="{ animation: 120, filter: 'input', preventOnFilter: false }"
-            >
+            <draggable :list="curItem.data" v-bind="{ animation: 120, filter: 'input', preventOnFilter: false }">
               <div v-for="(item, index) in curItem.data" :key="index" class="block-box drag">
                 <div class="block-title">
                   <span class="left">导航 {{ index + 1 }}</span>
@@ -728,10 +682,7 @@
               <div class="block-item">
                 <span class="label">文字颜色</span>
                 <div class="item-colorPicker">
-                  <span
-                    class="rest-color"
-                    @click="onEditorResetColor(curItem.style, 'textColor', '#000')"
-                  >重置</span>
+                  <span class="rest-color" @click="onEditorResetColor(curItem.style, 'textColor', '#000')">重置</span>
                   <colorPicker v-model="curItem.style.textColor" defaultColor="#000" />
                 </div>
               </div>
@@ -751,10 +702,7 @@
               <div class="block-item">
                 <span class="label">背景颜色</span>
                 <div class="item-colorPicker">
-                  <span
-                    class="rest-color"
-                    @click="onEditorResetColor(curItem.style, 'background', '#fff')"
-                  >重置</span>
+                  <span class="rest-color" @click="onEditorResetColor(curItem.style, 'background', '#fff')">重置</span>
                   <colorPicker v-model="curItem.style.background" defaultColor="#fff" />
                 </div>
               </div>
@@ -768,10 +716,7 @@
         <a-tabs>
           <a-tab-pane key="1" tab="内容设置">
             <div class="sub-title">添加图片 (最多10个，可拖动排序)</div>
-            <draggable
-              :list="curItem.data"
-              v-bind="{ animation: 120, filter: 'input', preventOnFilter: false }"
-            >
+            <draggable :list="curItem.data" v-bind="{ animation: 120, filter: 'input', preventOnFilter: false }">
               <div v-for="(item, index) in curItem.data" :key="index" class="block-box drag">
                 <div class="block-title">
                   <span class="left">图片 {{ index + 1 }}</span>
@@ -836,10 +781,91 @@
               <div class="block-item">
                 <span class="label">背景颜色</span>
                 <div class="item-colorPicker">
-                  <span
-                    class="rest-color"
-                    @click="onEditorResetColor(curItem.style, 'background', '#fff')"
-                  >重置</span>
+                  <span class="rest-color" @click="onEditorResetColor(curItem.style, 'background', '#fff')">重置</span>
+                  <colorPicker v-model="curItem.style.background" defaultColor="#fff" />
+                </div>
+              </div>
+            </div>
+          </a-tab-pane>
+        </a-tabs>
+      </div>
+
+      <div v-if="curItem.type == 'pdd'" class="editor-content">
+        <a-tabs>
+          <a-tab-pane key="1" tab="内容设置">
+            <div class="block-box">
+              <div class="block-title">
+                <span>商品来源</span>
+                <a-radio-group buttonStyle="solid" v-model="curItem.params.source">
+                  <a-radio-button value="auto">自动获取</a-radio-button>
+                  <a-radio-button value="choice">手动选择</a-radio-button>
+                </a-radio-group>
+              </div>
+            </div>
+            <!-- 手动选择 -->
+            <div v-if="curItem.params.source === 'choice'" class="block-box">
+              <div class="block-title">选择商品 ({{ curItem.data.length }})</div>
+              <SPdd v-model="curItem.data" />
+            </div>
+            <!-- 自动获取 -->
+            <div v-if="curItem.params.source === 'auto'" class="block-box">
+              <div class="block-title">商品内容</div>
+              <div class="block-item">
+                <span class="label">商品排序</span>
+                <a-radio-group buttonStyle="solid" v-model="curItem.params.auto.goodsSort">
+                  <a-radio-button value="all">默认</a-radio-button>
+                  <a-radio-button value="sales">销量</a-radio-button>
+                  <a-radio-button value="price">价格</a-radio-button>
+                </a-radio-group>
+              </div>
+              <div class="block-item">
+                <span class="label">显示数量</span>
+                <div class="block-item-right">
+                  <a-input-number v-model="curItem.params.auto.showNum" :min="1" :max="50" />
+                  <span class="unit-text">
+                    <span>件</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </a-tab-pane>
+          <a-tab-pane key="2" tab="样式设置">
+            <div class="block-box">
+              <div class="block-title">内容样式</div>
+              <div class="block-item">
+                <span class="label">显示类型</span>
+                <a-radio-group buttonStyle="solid" v-model="curItem.style.display">
+                  <a-radio-button value="list">列表平铺</a-radio-button>
+                  <a-radio-button :disabled="curItem.style.column === 1" value="slide">横向滑动</a-radio-button>
+                </a-radio-group>
+              </div>
+              <div class="block-item">
+                <span class="label">分列数量</span>
+                <a-radio-group buttonStyle="solid" v-model="curItem.style.column">
+                  <a-radio-button :disabled="curItem.style.display !== 'list'" :value="1">单列</a-radio-button>
+                  <a-radio-button :value="2">两列</a-radio-button>
+                  <a-radio-button :value="3">三列</a-radio-button>
+                </a-radio-group>
+              </div>
+              <div class="block-item">
+                <span class="label">显示内容</span>
+                <div class="item-checkbox" :style="{ width: '180px' }">
+                  <a-checkbox-group v-model="curItem.style.show">
+                    <a-checkbox value="goodsName">商品名称</a-checkbox>
+                    <a-checkbox value="goodsPrice">商品价格</a-checkbox>
+                    <a-checkbox value="linePrice">划线价格</a-checkbox>
+                    <a-checkbox v-show="curItem.style.column === 1" value="sellingPoint">商品卖点</a-checkbox>
+                    <a-checkbox v-show="curItem.style.column === 1" value="goodsSales">商品销量</a-checkbox>
+                  </a-checkbox-group>
+                </div>
+              </div>
+            </div>
+            <div class="block-box">
+              <div class="block-title">组件样式</div>
+              <div class="block-item">
+                <span class="label">背景颜色</span>
+                <div class="item-colorPicker">
+                  <span class="rest-color" @click="onEditorResetColor(curItem.style, 'background', '#fff')">重置</span>
                   <colorPicker v-model="curItem.style.background" defaultColor="#fff" />
                 </div>
               </div>
@@ -881,13 +907,13 @@ export default {
     SGoodsCate,
     SLink
   },
-  data () {
+  data() {
     return {}
   },
   methods: {
 
     // 新增数据
-    handleAddData (max = 1) {
+    handleAddData(max = 1) {
       const { defaultData, curItem } = this
       const newDataItem = defaultData.items[curItem.type].data[0]
       curItem.data.push(_.cloneDeep(newDataItem))
@@ -898,7 +924,7 @@ export default {
      * @param curItem
      * @param index
      */
-    handleDeleleData (curItem, index) {
+    handleDeleleData(curItem, index) {
       if (curItem.data.length <= 1) {
         this.$message.warning('至少保留一个')
         return false
@@ -912,7 +938,7 @@ export default {
      * @param attribute
      * @param color
      */
-    onEditorResetColor (holder, attribute, color) {
+    onEditorResetColor(holder, attribute, color) {
       holder[attribute] = color
     }
 

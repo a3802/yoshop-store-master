@@ -3,12 +3,7 @@
     <a-collapse :defaultActiveKey="componentKeys" :bordered="false" expandIconPosition="right">
       <a-collapse-panel v-for="group in components" :key="group.key" :header="group.name">
         <div class="module-list">
-          <div
-            v-for="(item, index) in group.data"
-            :key="index"
-            class="module-item"
-            @click="handleClickItem(item.type)"
-          >
+          <div v-for="(item, index) in group.data" :key="index" class="module-item" @click="handleClickItem(item.type)">
             <a-icon class="module-icon" :component="item.icon" />
             <span class="module-title">{{ item.name }}</span>
           </div>
@@ -50,6 +45,11 @@ const components = [
         name: '文章',
         type: 'article',
         icon: Icon.article
+      },
+      {
+        name: '拼多多',
+        type: 'pdd',
+        icon: Icon.pdd
       }
     ]
   },
@@ -108,17 +108,17 @@ const components = [
 ]
 
 export default {
-  data () {
+  data() {
     return { Icon, components }
   },
   computed: {
-    componentKeys () {
+    componentKeys() {
       const { components } = this
       return components.map(item => item.key)
     }
   },
   methods: {
-    handleClickItem (type) {
+    handleClickItem(type) {
       this.$emit('handleClickItem', type)
     }
   }
@@ -141,7 +141,7 @@ export default {
     padding-top: 0 !important;
   }
 
-  /deep/.ant-collapse > .ant-collapse-item {
+  /deep/.ant-collapse>.ant-collapse-item {
     border-bottom: none;
   }
 
@@ -165,6 +165,7 @@ export default {
       background: #fff;
       border-radius: 4px;
     }
+
     .module-icon {
       display: block;
       width: 74px;

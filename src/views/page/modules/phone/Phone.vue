@@ -311,6 +311,96 @@
             </ul>
           </div>
 
+          <!-- 拼多多商品组 -->
+          <div
+            v-else-if="item.type == 'pdd'"
+            class="diy-goods"
+            :style="{ background: item.style.background }"
+          >
+            <ul
+              class="goods-list clearfix"
+              :class="['display__' + item.style.display, 'column__' + item.style.column]"
+            >
+              <li
+                class="goods-item"
+                v-for="(dataItm, dataIdx) in (item.params.source == 'choice' ? item.data : item.defaultData)"
+                :key="`${index}_${dataIdx}`"
+              >
+                <!-- 单列商品 -->
+                <template v-if="item.style.column == 1">
+                  <div class="flex">
+                    <!-- 商品图片 -->
+                    <div class="goods-item_left">
+                      <img :src="dataItm.goods_image" />
+                    </div>
+                    <div class="goods-item_right">
+                      <!-- 商品名称 -->
+                      <div
+                        v-if="item.style.show.includes('goodsName')"
+                        class="goods-item_title twolist-hidden"
+                      >
+                        <span>{{ dataItm.goods_name }}</span>
+                      </div>
+                      <div class="goods-item_desc">
+                        <!-- 商品卖点 -->
+                        <div
+                          v-if="item.style.show.includes('sellingPoint')"
+                          class="desc-selling_point oneline-hide"
+                        >
+                          <span>{{ dataItm.selling_point }}</span>
+                        </div>
+                        <!-- 商品销量 -->
+                        <div
+                          v-if="item.style.show.includes('goodsSales')"
+                          class="desc-goods_sales oneline-hide"
+                        >
+                          <span>已售{{ dataItm.goods_sales }}件</span>
+                        </div>
+                        <!-- 商品价格 -->
+                        <div class="desc_footer">
+                          <span v-if="item.style.show.includes('goodsPrice')" class="price_x">
+                            <span class="small-unit">¥</span>
+                            <span>{{ dataItm.goods_price_min }}</span>
+                          </span>
+                          <span
+                            class="price_y"
+                            v-if="item.style.show.includes('linePrice') && dataItm.line_price_min > 0"
+                          >¥{{ dataItm.line_price_min }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+                <!-- 两列三列 -->
+                <template v-else>
+                  <div class="goods-image">
+                    <img :src="dataItm.goods_image" />
+                  </div>
+                  <div class="detail">
+                    <p
+                      v-if="item.style.show.includes('goodsName')"
+                      class="goods-name twolist-hidden"
+                    >{{ dataItm.goods_name }}</p>
+                    <p class="detail-price">
+                      <span v-if="item.style.show.includes('goodsPrice')" class="goods-price">
+                        <span class="small-unit">¥</span>
+                        <span>{{ dataItm.goods_price_min }}</span>
+                      </span>
+                      <span
+                        v-if="item.style.show.includes('linePrice') && dataItm.line_price_min > 0"
+                        class="line-price"
+                      >
+                        <span class="small-unit">¥</span>
+                        <span>{{ dataItm.line_price_min }}</span>
+                      </span>
+                    </p>
+                  </div>
+                </template>
+              </li>
+            </ul>
+          </div>
+
+
           <!-- 辅助空白 -->
           <div
             v-else-if="item.type == 'blank'"
